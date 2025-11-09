@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataforma Interativa de Mario Experience</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="header-top-bar">
+            <div class="container top-bar-content">
+                <div class="logo">
+                    <img src="assets/super-mario-logo.png" alt="Super Mario Logo"> </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#rules">Regras</a></li>
+                        <li><a href="#characters">Personagens</a></li>
+                        <li><a href="#about">sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="hero-section">
+            <div class="hero-content container">
+                <div class="hero-text">
+                    <p class="subtitle">game</p>
+                    <h2>SUPER MARIO</h2>
+                    <p class="description">
+                        Super Mario: A Aventura Clássica, Agora no Seu Navegador
+                        feito pelas alunas Vitoria e Ana.
+                    </p>
+                </div>
+            </div>
+            <div class="hero-characters">
+                </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="game-section" class="section-padded blue-bg-clouds">
+            <div class="container">
+                <h2 class="section-title">"Uma breve história"</h2>
+                <p class="section-description">
+                    O Reino do Cogumelo está em perigo. A Princesa Peach, governante do Reino, foi sequestrada pelo Rei Koopa, o vilão Bowser. Bowser pretende dominar o mundo transformando seus habitantes em blocos e objetos. Cabe a Mario, o encanador herói, atravessar diversos mundos perigosos para resgatar Peach e restaurar a paz no reino.
+                </p>
+                <div class="game-display-area">
+                    <canvas class="board"></canvas>
+                    <button id="start-button" class="start-game-button">Iniciar Jogo</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="rules-section" class="section-padded blue-bg-bricks">
+            <div class="container">
+                <h2 class="section-title">"Como Jogar"</h2>
+                <p class="section-description">
+O controle de Movimentação Lateral é realizado pelas Setas Esquerda/Direita ou pelas teclas A e D. Para executar o Salto, utilize a Seta para Cima, a tecla W, ou a barra de Espaço.                </p>
+                <div class="controls-display">
+                    <div class="arrow-keys">
+                        <img src="assets/arrow-keys.png" alt="Teclas de Seta"> </div>
+                    <div class="wasd-keys">
+                        <img src="assets/wasd-keys.png" alt="Teclas WASD"> </div>
+                </div>
+                <div class="character-summaries">
+            <h2 class="section-title">PERSONAGENS E PAPÉIS </h2>
+           <p>
+        <strong>Mario:</strong> 
+        O herói lendário, encanador e protetor do Reino do Cogumelo. Sua jornada é motivada por um único objetivo: resgatar a Princesa Peach das garras do vilão Bowser.
+    </p>
+    
+    <p>
+        <strong>Goomba:</strong> 
+        Uma das criaturas mais básicas a serviço do exército de Bowser. Os Goombas são os inimigos de infantaria inicial, espalhados pelos Reinos como obstáculos simples na jornada de Mario.
+    </p>
+    
+    <p>
+        <strong>Koopa Troopa:</strong> 
+        Um soldado mais robusto do exército de Koopa. Estas tartarugas caminham por todo o reino e se distinguem por poderem se retrair em seus cascos, tornando-se perigos móveis.
+    </p>
+    </div>
+            </div>
+        </section>
+
+        </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>Desenvolvido por: Ana Paula Vieira do Prado e Vitória Albertina Ribeiro de Santana.</p>
+            <p>Projeto Integrador Multidisciplinar (PIME) - Belas Artes de São Paulo - 2025</p>
+            <a href="https://github.com/seu-usuario/seu-repositorio" target="_blank">GitHub do Projeto</a>
+        </div>
+    </footer>
+
+    <script src="preload.js" defer></script>
+    <script src="./assets/map/coordinates.js" defer></script>
+    <script src="input.js" defer></script>
+    <script src="entitityParent.js" defer></script>
+    <script src="bgblueprint.js" defer></script>
+    <script src="./entity/mario.js" defer></script>
+    <script src="./entity/goomba.js" defer></script>
+    <script src="./entity/koopa.js" defer></script>
+    <script src="./entity/particles.js" defer></script>
+    <script src="./entity/bricks.js" defer></script>
+    <script src="./entity/coin.js" defer></script>
+    <script src="./entity/mushroom.js" defer></script>
+    <script src="./entity/mystery.js" defer></script>
+    <script src="levelBuilder.js" defer></script>
+    <script src="physics.js" defer></script>
+    <script src="animation.js" defer></script>
+    <script src="movement.js"></script>
+    <script src="game.js" defer></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const startButton = document.getElementById('start-button');
+            const gameCanvas = document.querySelector('.board');
+            
+            // Oculta o canvas inicialmente
+            gameCanvas.style.display = 'none';
+
+            startButton.addEventListener('click', () => {
+                startButton.style.display = 'none'; // Esconde o botão
+                gameCanvas.style.display = 'block'; // Mostra o canvas
+                // jogo.js já deve iniciar o jogo automaticamente ao carregar.
+                
+            });
+        });
+    </script>
+</body>
+
+</html>

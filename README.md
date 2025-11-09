@@ -1,1 +1,3 @@
-# PIME-DESIGN-E-DESENVOLVIMENTO-AGIL
+# Mario JS
+
+Javascript implementation of super mario bros
